@@ -6,7 +6,7 @@ Level::Level(sf::RenderWindow* hwnd, Input* in)
 	input = in;
 
 	// initialise game objects
-
+	ballManager.setWindu(window);
 }
 
 Level::~Level()
@@ -17,20 +17,24 @@ Level::~Level()
 // handle user input
 void Level::handleInput(float dt)
 {
-
+	if (input->isKeyDown(sf::Keyboard::Q))
+	{
+		input->setKeyUp(sf::Keyboard::Q);
+		ballManager.spawn();
+	}
 }
 
 // Update game objects
 void Level::update(float dt)
 {
-	
+	ballManager.update(dt);
 }
 
 // Render level
 void Level::render()
 {
 	beginDraw();
-
+	ballManager.render(window);
 	endDraw();
 }
 
