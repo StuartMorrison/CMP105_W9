@@ -5,6 +5,7 @@
 #include <string>
 #include <iostream>
 #include "BallManager.h"
+#include "SonicManager.h"
 
 
 class Level{
@@ -26,4 +27,5 @@ private:
 	Input* input;
 
 	BallManager ballManager;
+	SonicManager Tails;
 };

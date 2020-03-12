@@ -7,6 +7,7 @@ Level::Level(sf::RenderWindow* hwnd, Input* in)
 
 	// initialise game objects
 	ballManager.setWindu(window);
+	Tails.setWindu(window);
 }
 
 Level::~Level()
@@ -22,12 +23,25 @@ void Level::handleInput(float dt)
 		input->setKeyUp(sf::Keyboard::Q);
 		ballManager.spawn();
 	}
+
+	if (input->isKeyDown(sf::Keyboard::P))
+	{
+		input->setKeyUp(sf::Keyboard::P);
+		Tails.spawn();
+		if (Tails.getCounter() < 40)
+		{
+			Tails.setCounter(1);
+			std::cout << Tails.getCounter() << "\n";
+		}
+	}
 }
 
 // Update game objects
 void Level::update(float dt)
 {
 	ballManager.update(dt);
+	Tails.update(dt);
+	
 }
 
 // Render level
@@ -35,6 +49,7 @@ void Level::render()
 {
 	beginDraw();
 	ballManager.render(window);
+	Tails.render(window);
 	endDraw();
 }
 

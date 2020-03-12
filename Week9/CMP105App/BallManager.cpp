@@ -50,9 +50,9 @@ void BallManager::spawn()
 	if (counter == 0)
 	{
 		balls.push_back(Ball());
-		balls[balls.size()].setAlive(false);
-		balls[balls.size()].setTexture(&texture);
-		balls[balls.size()].setSize(sf::Vector2f(100, 100));
+		balls[balls.size() - 1].setAlive(false);
+		balls[balls.size() - 1].setTexture(&texture);
+		balls[balls.size() - 1].setSize(sf::Vector2f(100, 100));
 	}
 }
 
